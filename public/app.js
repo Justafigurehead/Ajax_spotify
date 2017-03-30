@@ -1,8 +1,18 @@
+var populateList = function(albums){
+  var albumList = albums.albums.items;
+  var ul = querySelector(button#search-results);
+  albumList.forEach(function(result){
+        var li = document.createElement('li');
+        li.innerText = result.artists.name;
+        console.log(result);
+        ul.appendChild(li);
+    });
+};
 
 var getQuery = function(url){
   var input = document.querySelector('#search-query');
   var query = input.value;
-   return url+ "q=" + query + "&type=artist";
+   return url+ "q=" + query + "&type=album";
   // return query;
 }
 
@@ -22,13 +32,6 @@ var requestComplete = function(){
   var searchResult = JSON.parse(jsonString);
   console.log(searchResult);
   populateList(searchResult);
-};
-
-var populateList = function(results){
-  results.forEach(function(){
-    var li = document.createElement('li');
-    console.log(result);
-  })
 };
 
 var handleClick = function(){
