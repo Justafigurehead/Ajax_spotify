@@ -1,10 +1,15 @@
 var populateList = function(albums){
   var albumList = albums.albums.items;
-  var ul = querySelector(button#search-results);
-  albumList.forEach(function(result){
+  var ul = document.getElementById('search-results');
+  while( ul.firstChild ){
+    ul.removeChild( ul.firstChild );
+  };
+  albumList.forEach(function(album){
         var li = document.createElement('li');
-        li.innerText = result.artists.name;
-        console.log(result);
+        li.innerText = album.artists[0].name;
+        console.log(album);
+        // console.log(result);
+
         ul.appendChild(li);
     });
 };
